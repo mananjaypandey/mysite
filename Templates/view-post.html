@@ -1,0 +1,83 @@
+{% extends 'layout.html'%}
+
+<!-- Main Content -->
+
+{% block content %}
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 50%;
+  width: auto;
+  background-color: #111;
+ float:right;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+</style>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="sidenav col-md-2">
+            {% for cat in categories %}
+            <a href="/view-post?cat_id={{cat.id}}">{{cat.name}}</a>
+           {% endfor %}
+        </div>
+
+        <div class="col-md-10">
+            {% for post in posts %}
+            <div class="post-preview">
+                <a href="post.html">
+                    <h2 class="post-title">
+                        {{post.title}}
+
+                    </h2>
+                    <h3 class="post-subtitle">
+                        {{post.content}}
+                    </h3>
+                </a>
+                <p class="post-meta">Posted by <a href="#">{{post.name}}</a> on {{post.Date}}</p>
+            </div>
+            <hr>
+            {% endfor %}
+            <!-- Pager -->
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+{% endblock %}

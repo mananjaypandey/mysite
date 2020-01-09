@@ -1,0 +1,35 @@
+{% extends 'index.html'%}
+    <!-- Main Content -->
+{% block header%}Contact Us{% endblock %}
+ {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<h3> Form</h3>
+  <form action="/sender"  method ="post" class="form-group">
+    <label for="fname" class="form-control">First Name</label><br>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.."class="form-control"><br>
+
+    <label for="lname"class="form-control">Last Name</label><br>
+    <input type="text" id="lname" name="lastname" class="form-control" placeholder="Your last name.."><br>
+
+    <label for="email" class="form-control">email-id</label><br>
+    <input type="text" id="email" name="email_id" class="form-control" placeholder="your E-mail.."><br>
+
+    <label for="country" class="form-control" class="form-control">Country</label><br>
+    <select id="country" name="country" class="form-control"><br>
+      <option value="india">india</option>
+      <option value="pakistan">pakistan</option>
+      <option value="USA">USA</option>
+    </select><br>
+
+    <label for="subject" class="form-control">Subject</label><br>
+    <textarea id="subject" name="subject" class="form-control" placeholder="Write something.." style="height:200px"></textarea><br>
+    <input type="submit" value="Submit" class="form-control">
+  </form>
+  {{msg|safe}}
+</>
+            </div>
+
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col col-md">
+        <table class="table">
+            <tr><th>Rollno</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Edit -  Delete</th>
+            </tr>
+
+            {% for student in studentList %}
+             <tr>
+                 <td>{{student.rollno}}</td>
+                 <td>{{student.name}}</td>
+                 <td>{{student.address}}</td>
+                 <td>{{student.contact}}</td>
+                 <td><a href="/edit/{{student.rollno}}" class="btn btn-primary">Edit</a>
+                 <a href="/delete/{{student.rollno}}" class="btn btn-primary">Delete</a>
+                 </td>
+             </tr>
+            {% endfor %}
+        </table>
+
+        <br/><br/><br/>
+        <a href="/" class="btn btn-primary">Add New Record</a>
+    </div>
+</div>
+
+{% endblock %}

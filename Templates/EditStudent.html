@@ -1,0 +1,19 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div clas="col col-md">
+        <form action="{{request.path}}" method="post">
+             Name <input type="text" name="name" value="{{student.name}}" class="form-control"/>
+            <br/>
+            Address  <input type="text" name="address" value="{{student.address}}" class="form-control"/>
+            <br/>
+            Contact <input type="text" name="contact" value="{{student.contact}}" class="form-control"/>
+            <br/><br/>
+            <input type="submit" class="btn btn-success" value="Update"/>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'post.html' %}
+
+{% block title %} add_new_post {% endblock %}
+
+
+{% block content %}
+
+
+<div class="col col-md">
+<h3>your post </h3>
+<hr>
+
+{%- for category, message in get_flashed_messages(with_categories = true) %}
+<div class="alert alert-danger">
+    {{message}}
+</div>
+    {% endfor %}
+
+    <form action="/add_newpost" method="post">
+
+    <label  >select category</label>
+        <select name="category"  class="form-control" >
+        {% for i in cat %}
+                <option>
+                    {{i[0]}}
+                </option>
+         {% endfor %}
+
+        </select>
+
+    <label  >name</label>
+    <input type="text" name="name" placeholder="enter name" class="form-control"/><br>
+    <label >title</label>
+    <input type="text" name="title" placeholder="enter title" class="form-control"/><br>
+    <label >Date</label>
+    <input type="text" name="Date" placeholder="Date Dalo" class="forn-control"/><br>
+    <label >content</label>
+    <textarea name="content" placeholder="write start from here..." class="form-control"/></textarea> <br><br><br>
+    <input type="submit" value="submit" class="btn btn-success form-control"/><br>
+</form>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+
+<footer>
+        <div class="container" >
+            <div class="row" style="background-color:black" >
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"  >
+                    <div style="float:left">
+                      <h4 >Posted by: mananjay pandey</h4><br>
+                    <h4>Contact no: 8340709370</h4><br>
+                        <h4 >organiser: gist technosolution</h4>
+                    </div>
+
+                        <div class="col-lg-4" >
+                            <img style="border-radius:100px" src="{{url_for('static',filename='img/mj.jpg')}}"  width="200" height="200" >
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </footer>
+{% endblock %}
